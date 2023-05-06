@@ -94,11 +94,12 @@
 </div>
 
     <script>
+                const dishead = document.getElementById('head');
         const distime = document.getElementById('distime');
         const discountdown = document.getElementById('countdown');
         const showcard = document.getElementById('showcard');
         // 目标日期，这里以2023年1月1日为例
-        const targetDate = new Date('2023-05-06T21:43:00');
+        const targetDate = new Date('2023-05-06T22:08:00');
 
         function updateCountdown() {
             // 当前日期
@@ -119,7 +120,7 @@
             // 如果剩余时间为零，则停止计时器
             if (remainingTime === 0) {
                 clearInterval(timer);
-                distime.style.display = "none";
+                dishead.style.display = "none";
                 discountdown.style.display = "none";
                 showcard.style.display = "block";
             }
