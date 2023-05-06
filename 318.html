@@ -11,8 +11,7 @@
         body {
             font-family: Arial, sans-serif;
         }
-
-     .head{
+        .head{
             background-image: url(./12.jpg);
             width: 700px;
             height: 500px;
@@ -79,14 +78,14 @@
 </head>
 
 <body>
-    <div class="head">
+    <div class="head" id="head">
     <h1 id="distime">距离2023年5月7号还有：</h1>
-    <div id="countdown"></div>
-    </div>
+    <div id="countdown">   </div>
+</div>
  
     <div class="card" id="showcard" style="display:none;">
 
-        <h1 style="color: white;">徐大美女</h1>
+        <h1 style="color: white;">需纯扽分</h1>
         <p style="color: white;">祝你在新的一岁里健康、快乐、幸福！</p>
         <audio id="birthday-music" src="./生日快乐.mp3"  ></audio>
         <button onclick="playMusic()">播 放</button>
@@ -94,12 +93,12 @@
 </div>
 
     <script>
-                const dishead = document.getElementById('head');
+        const dishead = document.getElementById('head');
         const distime = document.getElementById('distime');
         const discountdown = document.getElementById('countdown');
         const showcard = document.getElementById('showcard');
         // 目标日期，这里以2023年1月1日为例
-        const targetDate = new Date('2023-05-06T22:08:00');
+        const targetDate = new Date('2023-05-06T22:06:00');
 
         function updateCountdown() {
             // 当前日期
