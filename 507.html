@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洁</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+     
+        #countdown {
+            font-size: 32px;
+            text-align: center;
+            color: #f44336;
+       
+        }
+
+        .card {
+            width: 400px;
+            height: 500px;
+            background-color: pink;
+            background-image: url(./1.gif) ; 
+     
+            background-position: top center;
+    background-repeat: no-repeat, repeat;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: auto;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            text-align: center;
+            color: #f44336;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            padding-top: 150px;
+
+        }
+
+        p {
+            font-size: 24px;
+            text-align: center;
+            line-height: 1.5;
+            margin-bottom: 40px;
+    
+        }
+
+        button {
+            background-color: white;
+            color: pink;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head" id="head">
+    <h1 id="distime">距离2023年5月7号还有：</h1>
+    <div id="countdown">   </div>
+</div>
+ 
+    <div class="card" id="showcard" style="display:none;">
+
+        <h1 style="color: white;">亲爱的洁</h1>
+        <p style="color: white;">祝你在新的一岁里健康、快乐、幸福！</p>
+        <audio id="birthday-music" src="./生日快乐.mp3"  ></audio>
+        <button onclick="playMusic()">播 放</button>
+ 
+</div>
+
+    <script>
+        const dishead = document.getElementById('head');
+        const distime = document.getElementById('distime');
+        const discountdown = document.getElementById('countdown');
+        const showcard = document.getElementById('showcard');
+        // 目标日期，这里以2023年1月1日为例
+        const targetDate = new Date('2023-05-06T22:15:00');
+
+        function updateCountdown() {
+            // 当前日期
+            const now = new Date();
+
+            // 计算剩余时间（单位：秒）
+            const remainingTime = Math.max(targetDate - now, 0) / 1000;
+
+            // 将剩余时间转换为天数、小时、分钟和秒
+            const days = Math.floor(remainingTime / 86400);
+            const hours = Math.floor((remainingTime % 86400) / 3600);
+            const minutes = Math.floor((remainingTime % 3600) / 60);
+            const seconds = Math.floor(remainingTime % 60);
+
+            // 将时间显示在页面上
+            document.getElementById('countdown').innerHTML = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+
+            // 如果剩余时间为零，则停止计时器
+            if (remainingTime === 0) {
+                clearInterval(timer);
+                dishead.style.display = "none";
+                discountdown.style.display = "none";
+                showcard.style.display = "block";
+            }
+        }
+
+        // 每秒更新一次倒计时
+        const timer = setInterval(updateCountdown, 1000);
+
+
+        const playsong = document.getElementById('play');
+
+        function playMusic() {
+            var music = document.getElementById("birthday-music");
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+
+
+    </script>
+    <!-- 卡片 -->
+
+</body>
+
+</html>
